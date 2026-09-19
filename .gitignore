@@ -1,0 +1,110 @@
+# =========================================================
+# FRONTEND - ANGULAR / NODE
+# =========================================================
+
+# Compiled output
+frontEnd/dist/
+frontEnd/tmp/
+frontEnd/out-tsc/
+frontEnd/bazel-out/
+
+# Node
+frontEnd/node_modules/
+frontEnd/npm-debug.log
+frontEnd/yarn-error.log
+frontEnd/pnpm-debug.log
+
+# Angular
+frontEnd/.angular/cache/
+
+# Testing / coverage
+frontEnd/coverage/
+frontEnd/testem.log/
+
+# Sass
+frontEnd/.sass-cache/
+
+# Miscellaneous
+frontEnd/connect.lock
+frontEnd/typings/
+frontEnd/__screenshots__/
+frontEnd/libpeerconnection.log
+
+# =========================================================
+# FRONTEND - IDEs / EDITORS
+# =========================================================
+
+frontEnd/.idea/
+frontEnd/.project
+frontEnd/.classpath
+frontEnd/.c9/
+frontEnd/*.launch
+frontEnd/.settings/
+frontEnd/*.sublime-workspace
+frontEnd/.history/
+
+# VS Code
+frontEnd/.vscode/*
+!frontEnd/.vscode/settings.json
+!frontEnd/.vscode/tasks.json
+!frontEnd/.vscode/launch.json
+!frontEnd/.vscode/extensions.json
+!frontEnd/.vscode/mcp.json
+
+# =========================================================
+# BACKEND - PYTHON
+# =========================================================
+
+# Environment variables / secrets
+backEnd/.env
+backEnd/.env.*
+!backEnd/.env.example
+
+# Virtual environment
+backEnd/.venv/
+backEnd/venv/
+backEnd/env/
+backEnd/ENV/
+
+# Python cache
+backEnd/__pycache__/
+backEnd/**/*.pyc
+backEnd/**/*.pyo
+backEnd/**/*.pyd
+
+# Python test / coverage
+backEnd/.pytest_cache/
+backEnd/.coverage
+backEnd/.coverage.*
+backEnd/htmlcov/
+backEnd/.tox/
+backEnd/.nox/
+
+# Build / distribution
+backEnd/build/
+backEnd/dist/
+backEnd/*.egg-info/
+backEnd/*.egg
+backEnd/wheels/
+
+# =========================================================
+# PYTHON IDEs
+# =========================================================
+
+backEnd/.idea/
+backEnd/.vscode/
+backEnd/*.code-workspace
+
+# =========================================================
+# SYSTEM
+# =========================================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================================================
+# LOGS
+# =========================================================
+
+*.log

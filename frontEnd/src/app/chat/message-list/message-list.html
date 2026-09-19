@@ -1,0 +1,120 @@
+<div class="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-6">
+  @if (messages().length === 0) {
+    <div class="flex flex-col items-center pt-12 text-center sm:pt-20">
+      <div
+        class="grid size-12 place-items-center rounded-2xl bg-emerald-600/10 text-emerald-600 dark:text-emerald-400"
+      >
+        <svg
+          class="size-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        >
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+      </div>
+      <h2 class="mt-4 text-xl font-semibold tracking-tight">Como posso ajudar nos seus estudos?</h2>
+      <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+        Tire dúvidas, revise conteúdos ou treine com questões.
+      </p>
+
+      <div class="mt-8 grid w-full gap-2 sm:grid-cols-2">
+        @for (s of suggestions; track s) {
+          <button
+            type="button"
+            (click)="suggestionPicked.emit(s)"
+            class="rounded-xl border border-zinc-200 p-3 text-left text-sm text-zinc-700 transition hover:border-emerald-500/50 hover:bg-zinc-50 dark:border-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-900"
+          >
+            {{ s }}
+          </button>
+        }
+      </div>
+    </div>
+  } @else {
+    @for (m of messages(); track $index) {
+      @if (m.role === 'user') {
+        <div class="flex justify-end">
+          <div
+            class="max-w-[85%] rounded-2xl rounded-br-md bg-zinc-100 px-4 py-2.5 text-sm whitespace-pre-wrap dark:bg-zinc-800"
+          >
+            {{ m.content }}
+          </div>
+        </div>
+      } @else {
+        <div class="flex gap-3">
+          <div
+            class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-lg bg-emerald-600 text-white"
+          >
+            <svg
+              class="size-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </div>
+          <div
+            class="prose prose-sm min-w-0 max-w-none flex-1 dark:prose-invert prose-a:text-emerald-600 dark:prose-a:text-emerald-400 prose-code:before:content-none prose-code:after:content-none"
+          >
+            <markdown
+  [data]="m.content"
+  katex
+  [disableSanitizer]="true"
+></markdown>
+          </div>
+        </div>
+      }
+    }
+  }
+
+  <!-- Indicador de "digitando" -->
+  @if (loading()) {
+    <div class="flex gap-3" role="status" aria-label="O tutor está respondendo">
+      <div
+        class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-lg bg-emerald-600 text-white"
+      >
+        <svg
+          class="size-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        >
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+      </div>
+      <div class="flex h-7 items-center gap-1">
+        <span
+          class="size-1.5 animate-bounce rounded-full bg-zinc-400 [animation-delay:-0.3s] dark:bg-zinc-500"
+        ></span>
+        <span
+          class="size-1.5 animate-bounce rounded-full bg-zinc-400 [animation-delay:-0.15s] dark:bg-zinc-500"
+        ></span>
+        <span class="size-1.5 animate-bounce rounded-full bg-zinc-400 dark:bg-zinc-500"></span>
+      </div>
+    </div>
+  }
+
+  <!-- Erro (provisório: no passo 6 passa a usar SweetAlert2) -->
+  @if (error(); as err) {
+    <div
+      role="alert"
+      class="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-900/50 dark:bg-red-950/40 dark:text-red-300"
+    >
+      <p class="flex-1">{{ err.message }}</p>
+      <button
+        type="button"
+        (click)="retry.emit()"
+        class="shrink-0 font-medium underline underline-offset-2 hover:no-underline"
+      >
+        Tentar novamente
+      </button>
+    </div>
+  }
+</div>
