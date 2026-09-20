@@ -26,6 +26,7 @@ export class MessageList {
   ];
 
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private firstScroll = true;
 
   constructor() {
     // Depois de cada renderização em que a lista, o "digitando" ou o erro mudam,
@@ -35,7 +36,8 @@ export class MessageList {
       this.loading();
       this.error();
       const el = this.host.nativeElement;
-      el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+      el.scrollTo({ top: el.scrollHeight, behavior: this.firstScroll ? 'auto' : 'smooth' });
+      this.firstScroll = false;
     });
   }
 }

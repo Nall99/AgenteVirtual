@@ -111,6 +111,7 @@ export class AlertService {
           <li><strong>Não use para pacientes reais</strong> e não envie dados que identifiquem
               pessoas (nome, CPF, prontuário).</li>
           <li>Suas mensagens são enviadas a um provedor de IA para gerar as respostas.</li>
+          <li>A conversa fica salva neste navegador. Use a lixeira para apagá-la.</li>
         </ul>`,
       confirmButtonText: firstVisit ? 'Entendi, continuar' : 'Fechar',
       allowOutsideClick: !firstVisit,
