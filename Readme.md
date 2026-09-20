@@ -327,4 +327,4 @@ No Render, altere `ALLOWED_ORIGIN` para o endereço da Vercel, com `https://` e 
 
 ## Licença
 
-Projeto de estudo. Defina a licença de sua preferência antes de tornar o repositório público.
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
