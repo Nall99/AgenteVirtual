@@ -2,7 +2,7 @@
 
 Assistente de estudos para estudantes de medicina. O aluno conversa em uma interface web, e um backend em Python consulta um modelo de linguagem (LLM) para explicar conteúdos ou treinar de forma interativa.
 
-Projeto criado para **aprender a desenvolver aplicações com LLM** (Angular + Python) e publicado **de graça** na internet.
+Projeto criado para **aprender a desenvolver aplicações com LLM** (Angular + Python) e publicado **de graça** na internet, para acessar [click aqui](https://agente-virtual-gold.vercel.app/).
 
 > **Aviso:** ferramenta **educacional**. O modelo pode errar. Confira doses, critérios diagnósticos e condutas em fontes oficiais. **Não use para pacientes reais** e não envie dados que identifiquem pessoas (nome, CPF, prontuário).
 
